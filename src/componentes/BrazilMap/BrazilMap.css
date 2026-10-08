@@ -1,0 +1,1497 @@
+/* =========================================================
+   PAINEL BRASIL — MAPA NEON / FUNDO CLARO
+========================================================= */
+
+.brazil-map {
+  position: relative;
+  overflow: hidden;
+
+  margin-top: 24px;
+  padding: 28px;
+
+  background: #ffffff;
+
+  border: 1px solid #e8edf4;
+  border-radius: 24px;
+
+  box-shadow:
+    0 12px 35px rgba(30, 41, 59, 0.06);
+
+  color: #182033;
+}
+
+
+/* =========================================================
+   EFEITOS DECORATIVOS
+========================================================= */
+
+.neon-orb {
+  position: absolute;
+
+  width: 230px;
+  height: 230px;
+
+  border-radius: 50%;
+
+  filter: blur(90px);
+
+  opacity: 0.08;
+
+  pointer-events: none;
+
+  animation: orbFloat 8s ease-in-out infinite alternate;
+}
+
+.orb-one {
+  background: #00e5ff;
+
+  top: -150px;
+  left: 15%;
+}
+
+.orb-two {
+  background: #a855f7;
+
+  right: -130px;
+  bottom: -140px;
+
+  animation-delay: -4s;
+}
+
+@keyframes orbFloat {
+  from {
+    transform: translate(0, 0);
+  }
+
+  to {
+    transform: translate(25px, 20px);
+  }
+}
+
+
+/* =========================================================
+   CABEÇALHO
+========================================================= */
+
+.brazil-map-header {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.map-title-line {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+}
+
+.map-status-dot {
+  width: 7px;
+  height: 7px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #16c784;
+
+  box-shadow:
+    0 0 5px rgba(22, 199, 132, 0.8),
+    0 0 12px rgba(22, 199, 132, 0.35);
+
+  animation: statusPulse 2s infinite;
+}
+
+@keyframes statusPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(0.7);
+    opacity: 0.55;
+  }
+}
+
+.panel-label {
+  color: #64748b;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 1.6px;
+}
+
+.brazil-map-header h3 {
+  margin: 7px 0 5px;
+
+  color: #182033;
+
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.brazil-map-header p {
+  margin: 0;
+
+  color: #7b8799;
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   TOTAL DE UFs
+========================================================= */
+
+.map-total {
+  position: relative;
+
+  width: 78px;
+  height: 78px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  background: #f8fafc;
+
+  border: 1px solid #e7edf4;
+
+  border-radius: 17px;
+
+  box-shadow:
+    0 6px 18px rgba(30, 41, 59, 0.05);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.map-total:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 24px rgba(30, 41, 59, 0.08);
+}
+
+.total-icon {
+  position: absolute;
+
+  top: 8px;
+  right: 9px;
+
+  color: #00bcd4;
+
+  opacity: 0.8;
+}
+
+.map-total strong {
+  color: #182033;
+
+  font-size: 25px;
+  line-height: 1;
+}
+
+.map-total > span:last-child {
+  margin-top: 5px;
+
+  color: #94a0b2;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   CONTEÚDO
+========================================================= */
+
+.brazil-map-content {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+
+  grid-template-columns: 1.3fr 0.7fr;
+
+  gap: 24px;
+
+  margin-top: 25px;
+}
+
+
+/* =========================================================
+   ÁREA DO MAPA
+========================================================= */
+
+.map-visual {
+  position: relative;
+
+  min-height: 455px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(0, 229, 255, 0.045),
+      transparent 60%
+    );
+
+  border: 1px solid #edf1f5;
+
+  border-radius: 20px;
+}
+
+
+/* =========================================================
+   GRID TECNOLÓGICO
+========================================================= */
+
+.map-grid {
+  position: absolute;
+
+  inset: 0;
+
+  opacity: 0.45;
+
+  background-image:
+    linear-gradient(
+      rgba(30, 41, 59, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(30, 41, 59, 0.035) 1px,
+      transparent 1px
+    );
+
+  background-size: 35px 35px;
+
+  mask-image:
+    radial-gradient(
+      circle,
+      black 15%,
+      transparent 75%
+    );
+
+  pointer-events: none;
+}
+
+.map-glow {
+  position: absolute;
+
+  width: 330px;
+  height: 330px;
+
+  border-radius: 50%;
+
+  background: rgba(0, 229, 255, 0.035);
+
+  filter: blur(65px);
+
+  pointer-events: none;
+}
+
+.brazil-svg {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  max-width: 540px;
+
+  height: auto;
+
+  overflow: visible;
+}
+
+
+/* =========================================================
+   REGIÕES DO MAPA
+========================================================= */
+
+.region {
+  cursor: pointer;
+
+  stroke: #ffffff;
+  stroke-width: 5;
+
+  transform-box: fill-box;
+  transform-origin: center;
+
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease,
+    stroke 0.3s ease,
+    opacity 0.3s ease;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.region:hover {
+  transform:
+    translateY(-5px)
+    scale(1.025);
+
+  stroke: #ffffff;
+
+  stroke-width: 5;
+
+  filter:
+    brightness(1.12)
+    drop-shadow(
+      0 0 5px currentColor
+    )
+    drop-shadow(
+      0 0 14px currentColor
+    );
+}
+
+
+/* =========================================================
+   REGIÃO SELECIONADA
+========================================================= */
+
+.region.active {
+  transform:
+    translateY(-6px)
+    scale(1.035);
+
+  stroke: #182033;
+
+  stroke-width: 5;
+
+  animation: neonSelected 1.7s ease-in-out infinite;
+}
+
+@keyframes neonSelected {
+  0%,
+  100% {
+    filter:
+      brightness(1.05)
+      drop-shadow(
+        0 0 5px currentColor
+      )
+      drop-shadow(
+        0 0 13px currentColor
+      );
+  }
+
+  50% {
+    filter:
+      brightness(1.2)
+      drop-shadow(
+        0 0 9px currentColor
+      )
+      drop-shadow(
+        0 0 25px currentColor
+      );
+  }
+}
+
+
+/* =========================================================
+   CORES NEON
+========================================================= */
+
+.region-norte {
+  color: #18d878;
+
+  fill: rgba(57, 255, 136, 0.62);
+}
+
+.region-nordeste {
+  color: #f52f9f;
+
+  fill: rgba(255, 60, 172, 0.62);
+}
+
+.region-centro-oeste {
+  color: #9651e8;
+
+  fill: rgba(168, 85, 247, 0.62);
+}
+
+.region-sudeste {
+  color: #00bcd4;
+
+  fill: rgba(0, 229, 255, 0.62);
+}
+
+.region-sul {
+  color: #f28b27;
+
+  fill: rgba(255, 159, 67, 0.65);
+}
+
+
+/* =========================================================
+   NOMES DAS REGIÕES
+========================================================= */
+
+.region-name {
+  fill: #263247;
+
+  font-size: 10px;
+
+  font-weight: 900;
+
+  letter-spacing: 1.3px;
+
+  text-anchor: middle;
+
+  pointer-events: none;
+
+  filter:
+    drop-shadow(
+      0 1px 2px
+      rgba(255, 255, 255, 0.9)
+    );
+}
+
+
+/* =========================================================
+   DICA DO MAPA
+========================================================= */
+
+.map-hint {
+  position: absolute;
+
+  bottom: 13px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  padding: 7px 13px;
+
+  background: rgba(255, 255, 255, 0.94);
+
+  border: 1px solid #e7edf4;
+
+  border-radius: 30px;
+
+  color: #718096;
+
+  font-size: 10px;
+
+  white-space: nowrap;
+
+  box-shadow:
+    0 5px 16px
+    rgba(30, 41, 59, 0.07);
+
+  backdrop-filter: blur(8px);
+}
+
+
+/* =========================================================
+   PAINEL LATERAL
+========================================================= */
+
+.region-info {
+  position: relative;
+
+  min-height: 350px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 23px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #f8fafc
+    );
+
+  border: 1px solid #e7edf4;
+
+  border-radius: 20px;
+
+  box-shadow:
+    0 8px 25px
+    rgba(30, 41, 59, 0.045);
+
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+/* =========================================================
+   ESTADO VAZIO
+========================================================= */
+
+.region-empty {
+  width: 100%;
+
+  text-align: center;
+
+  animation: fadeIn 0.45s ease;
+}
+
+.empty-icon {
+  width: 58px;
+  height: 58px;
+
+  margin: 0 auto 15px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #f4fbfd;
+
+  border: 1px solid #d9f5f8;
+
+  border-radius: 17px;
+
+  color: #00aabd;
+
+  box-shadow:
+    0 6px 18px
+    rgba(0, 188, 212, 0.08);
+}
+
+.empty-mini {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: #94a0b2;
+
+  font-size: 8px;
+  font-weight: 800;
+
+  letter-spacing: 1.6px;
+}
+
+.region-empty strong {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #182033;
+
+  font-size: 16px;
+}
+
+.region-empty p {
+  max-width: 230px;
+
+  margin: 0 auto;
+
+  color: #7b8799;
+
+  font-size: 12px;
+
+  line-height: 1.6;
+}
+
+.region-counter {
+  width: fit-content;
+
+  margin: 18px auto 0;
+
+  padding: 7px 13px;
+
+  background: #f8fafc;
+
+  border: 1px solid #e7edf4;
+
+  border-radius: 30px;
+
+  color: #64748b;
+
+  font-size: 10px;
+}
+
+.region-counter span {
+  margin-right: 5px;
+
+  color: #00aabd;
+
+  font-weight: 900;
+}
+
+
+/* =========================================================
+   REGIÃO SELECIONADA
+========================================================= */
+
+.region-selected {
+  width: 100%;
+
+  animation: selectedIn 0.35s ease;
+}
+
+@keyframes selectedIn {
+  from {
+    opacity: 0;
+
+    transform:
+      translateX(15px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateX(0);
+  }
+}
+
+
+/* =========================================================
+   BOTÃO FECHAR
+========================================================= */
+
+.close-region {
+  position: absolute;
+
+  top: 15px;
+  right: 15px;
+
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #ffffff;
+
+  border: 1px solid #e5eaf1;
+
+  border-radius: 9px;
+
+  color: #64748b;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+
+  box-shadow:
+    0 3px 10px
+    rgba(30, 41, 59, 0.05);
+}
+
+.close-region:hover {
+  color: #182033;
+
+  transform: rotate(90deg);
+
+  box-shadow:
+    0 5px 14px
+    rgba(30, 41, 59, 0.1);
+}
+
+
+/* =========================================================
+   LISTA DE ESTADOS DA REGIÃO
+========================================================= */
+
+.selected-top {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  color: #7b8799;
+
+  font-size: 8px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+}
+
+.selected-dot {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: var(--region-color);
+
+  box-shadow:
+    0 0 6px var(--region-color),
+    0 0 13px var(--region-color);
+}
+
+.region-selected h4 {
+  margin: 8px 0 5px;
+
+  color: #182033;
+
+  font-size: 27px;
+
+  font-weight: 700;
+}
+
+.region-number {
+  display: flex;
+  align-items: baseline;
+
+  gap: 7px;
+
+  margin-bottom: 17px;
+}
+
+.region-number strong {
+  color: var(--region-color);
+
+  font-size: 31px;
+
+  line-height: 1;
+
+  text-shadow:
+    0 0 10px
+    color-mix(
+      in srgb,
+      var(--region-color) 25%,
+      transparent
+    );
+}
+
+.region-number span {
+  color: #7b8799;
+
+  font-size: 11px;
+}
+
+.state-list {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 7px;
+}
+
+.state-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 6px;
+
+  padding: 9px;
+
+  background: #ffffff;
+
+  border: 1px solid #e7edf4;
+
+  border-radius: 9px;
+
+  color: #334155;
+
+  font-size: 10px;
+
+  box-shadow:
+    0 3px 10px
+    rgba(30, 41, 59, 0.025);
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.state-item:hover {
+  transform: translateX(3px);
+
+  border-color: var(--region-color);
+
+  box-shadow:
+    0 4px 14px
+    color-mix(
+      in srgb,
+      var(--region-color) 12%,
+      transparent
+    );
+}
+
+.state-item span {
+  color: #334155;
+
+  font-weight: 600;
+}
+
+.state-item small {
+  min-width: 25px;
+
+  text-align: center;
+
+  color: var(--region-color);
+
+  font-size: 9px;
+
+  font-weight: 900;
+}
+
+
+/* =========================================================
+   CARD DO ESTADO SELECIONADO
+========================================================= */
+
+.state-detail {
+  position: relative;
+
+  width: 100%;
+
+  padding: 6px 2px;
+
+  animation: stateCardIn 0.45s ease;
+}
+
+
+/* Linha neon decorativa */
+
+.state-detail::before {
+  content: "";
+
+  position: absolute;
+
+  top: -23px;
+  left: 0;
+
+  width: 48px;
+  height: 3px;
+
+  border-radius: 10px;
+
+  background: var(--region-color);
+
+  box-shadow:
+    0 0 8px color-mix(
+      in srgb,
+      var(--region-color) 55%,
+      transparent
+    ),
+    0 0 18px color-mix(
+      in srgb,
+      var(--region-color) 25%,
+      transparent
+    );
+}
+
+
+/* =========================================================
+   BOTÃO VOLTAR
+========================================================= */
+
+.back-region {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 6px;
+
+  margin-bottom: 22px;
+  padding: 7px 11px;
+
+  border: 1px solid #e4eaf1;
+  border-radius: 9px;
+
+  background: #ffffff;
+
+  color: #64748b;
+
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    color 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.back-region:hover {
+  color: var(--region-color);
+
+  border-color: color-mix(
+    in srgb,
+    var(--region-color) 40%,
+    #e4eaf1
+  );
+
+  background: color-mix(
+    in srgb,
+    var(--region-color) 4%,
+    #ffffff
+  );
+
+  transform: translateX(-3px);
+
+  box-shadow:
+    0 5px 15px
+    color-mix(
+      in srgb,
+      var(--region-color) 10%,
+      transparent
+    );
+}
+
+
+/* =========================================================
+   IDENTIFICAÇÃO DO ESTADO
+========================================================= */
+
+.state-detail .selected-top {
+  color: var(--region-color);
+}
+
+.state-detail .selected-dot {
+  width: 7px;
+  height: 7px;
+
+  flex-shrink: 0;
+
+  animation: selectedDotPulse 2s ease-in-out infinite;
+}
+
+@keyframes selectedDotPulse {
+  0%,
+  100% {
+    transform: scale(1);
+
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(0.75);
+
+    opacity: 0.65;
+  }
+}
+
+
+/* =========================================================
+   NOME DO ESTADO
+========================================================= */
+
+.state-detail h4 {
+  margin: 10px 0 3px;
+
+  color: #182033;
+
+  font-size: 29px;
+
+  font-weight: 750;
+
+  line-height: 1.1;
+
+  letter-spacing: -0.6px;
+}
+
+.state-region-name {
+  margin: 0 0 23px;
+
+  color: #7b8799;
+
+  font-size: 12px;
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   DESTAQUE — MUNICÍPIOS
+========================================================= */
+
+.municipality-highlight {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+
+  overflow: hidden;
+
+  padding: 17px;
+
+  border: 1px solid color-mix(
+    in srgb,
+    var(--region-color) 24%,
+    #e7edf4
+  );
+
+  border-radius: 15px;
+
+  background:
+    linear-gradient(
+      135deg,
+      color-mix(
+        in srgb,
+        var(--region-color) 7%,
+        #ffffff
+      ),
+      #ffffff
+    );
+
+  box-shadow:
+    0 8px 22px
+    color-mix(
+      in srgb,
+      var(--region-color) 7%,
+      transparent
+    );
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.municipality-highlight:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 28px
+    color-mix(
+      in srgb,
+      var(--region-color) 12%,
+      transparent
+    );
+}
+
+
+/* Brilho interno */
+
+.municipality-highlight::after {
+  content: "";
+
+  position: absolute;
+
+  width: 110px;
+  height: 110px;
+
+  right: -55px;
+  top: -55px;
+
+  border-radius: 50%;
+
+  background: var(--region-color);
+
+  opacity: 0.05;
+
+  filter: blur(20px);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   ÍCONE DOS MUNICÍPIOS
+========================================================= */
+
+.municipality-icon {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 48px;
+  height: 48px;
+
+  flex-shrink: 0;
+
+  border-radius: 13px;
+
+  background: color-mix(
+    in srgb,
+    var(--region-color) 11%,
+    #ffffff
+  );
+
+  border: 1px solid color-mix(
+    in srgb,
+    var(--region-color) 17%,
+    #ffffff
+  );
+
+  color: var(--region-color);
+
+  box-shadow:
+    0 5px 15px
+    color-mix(
+      in srgb,
+      var(--region-color) 10%,
+      transparent
+    );
+}
+
+.municipality-highlight > div:last-child {
+  position: relative;
+  z-index: 1;
+}
+
+.municipality-highlight span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #7b8799;
+
+  font-size: 8px;
+
+  font-weight: 900;
+
+  letter-spacing: 1.4px;
+}
+
+.municipality-highlight strong {
+  display: block;
+
+  color: #182033;
+
+  font-size: 30px;
+
+  font-weight: 750;
+
+  line-height: 1;
+}
+
+
+/* =========================================================
+   STATUS DA API
+========================================================= */
+
+.api-status {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  margin-top: 18px;
+
+  color: #7b8799;
+
+  font-size: 9px;
+
+  line-height: 1.4;
+}
+
+.api-status-dot {
+  width: 7px;
+  height: 7px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #18d878;
+
+  box-shadow:
+    0 0 5px rgba(24, 216, 120, 0.65),
+    0 0 12px rgba(24, 216, 120, 0.25);
+
+  animation: apiPulse 2.2s ease-in-out infinite;
+}
+
+@keyframes apiPulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}
+
+
+/* =========================================================
+   ANIMAÇÕES
+========================================================= */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+}
+
+@keyframes stateCardIn {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(10px)
+      scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVO — TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .brazil-map-content {
+    grid-template-columns: 1fr;
+  }
+
+  .map-visual {
+    min-height: 410px;
+  }
+
+  .region-info {
+    min-height: 300px;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVO — CELULAR
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .brazil-map {
+    padding: 18px;
+
+    border-radius: 18px;
+  }
+
+
+  /* Cabeçalho */
+
+  .brazil-map-header {
+    gap: 12px;
+  }
+
+  .brazil-map-header h3 {
+    font-size: 18px;
+  }
+
+  .brazil-map-header p {
+    font-size: 11px;
+  }
+
+
+  /* Total */
+
+  .map-total {
+    width: 62px;
+    height: 62px;
+
+    border-radius: 14px;
+  }
+
+  .map-total strong {
+    font-size: 20px;
+  }
+
+  .map-total > span:last-child {
+    font-size: 8px;
+  }
+
+  .total-icon {
+    top: 6px;
+    right: 7px;
+  }
+
+
+  /* Mapa */
+
+  .map-visual {
+    min-height: 330px;
+
+    border-radius: 16px;
+  }
+
+  .region-name {
+    font-size: 8px;
+  }
+
+  .map-hint {
+    max-width: calc(100% - 24px);
+
+    padding: 6px 10px;
+
+    font-size: 9px;
+  }
+
+
+  /* Painel */
+
+  .region-info {
+    min-height: 280px;
+
+    padding: 20px;
+
+    border-radius: 16px;
+  }
+
+
+  /* Lista de estados */
+
+  .state-list {
+    grid-template-columns: 1fr;
+  }
+
+
+  /* Card do estado */
+
+  .state-detail::before {
+    top: -20px;
+
+    width: 40px;
+  }
+
+  .back-region {
+    margin-bottom: 18px;
+  }
+
+  .state-detail h4 {
+    font-size: 25px;
+
+    letter-spacing: -0.4px;
+  }
+
+  .state-region-name {
+    margin-bottom: 19px;
+
+    font-size: 11px;
+  }
+
+
+  /* Municípios */
+
+  .municipality-highlight {
+    gap: 12px;
+
+    padding: 15px;
+
+    border-radius: 13px;
+  }
+
+  .municipality-icon {
+    width: 44px;
+    height: 44px;
+
+    border-radius: 11px;
+  }
+
+  .municipality-highlight strong {
+    font-size: 26px;
+  }
+
+  .municipality-highlight span {
+    font-size: 7px;
+  }
+
+
+  /* Status */
+
+  .api-status {
+    font-size: 8px;
+  }
+}
+
+
+/* =========================================================
+   CELULARES MUITO PEQUENOS
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .brazil-map {
+    padding: 15px;
+  }
+
+  .brazil-map-header h3 {
+    font-size: 16px;
+  }
+
+  .brazil-map-header p {
+    font-size: 10px;
+  }
+
+  .map-total {
+    width: 56px;
+    height: 56px;
+  }
+
+  .map-total strong {
+    font-size: 18px;
+  }
+
+  .map-visual {
+    min-height: 285px;
+  }
+
+  .region-info {
+    padding: 17px;
+  }
+
+  .state-detail h4 {
+    font-size: 23px;
+  }
+
+  .municipality-highlight {
+    padding: 13px;
+  }
+
+  .municipality-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .municipality-highlight strong {
+    font-size: 24px;
+  }
+}
