@@ -1,10 +1,10 @@
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Home from "./pages/Home/Home";
-import Estados from "./pages/Estados/Estados";
+import Home from "./Pages/Home/Home";
+import Estados from "./Pages/Estados/Estados";
 
 import "./App.css";
-
 function App() {
   return (
     <BrowserRouter>
