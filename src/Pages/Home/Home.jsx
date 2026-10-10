@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import Header from "../../componentes/Header/Header";
 import ConsultaRapida from "../../componentes/ConsultaRapida/ConsultaRapida";
 import { buscarLocalizacaoPorUf } from "../../services/localizacaoBrasil";
 import BrazilMap from "../../componentes/BrazilMap/BrazilMap";
@@ -38,59 +38,7 @@ const localizacao =
           CABEÇALHO
           ===================================================== */}
 
-      <header className="home-header">
-
-        <button
-          className="home-brand"
-          onClick={() => navigate("/")}
-        >
-          <span className="brand-flag">
-            🇧🇷
-          </span>
-
-          <span className="brand-name">
-            PAINEL <strong>BRASIL</strong>
-          </span>
-        </button>
-
-
-        <nav className="home-nav">
-
-          <button
-            onClick={() =>
-              document
-                .getElementById("consulta-rapida")
-                ?.scrollIntoView({
-                  behavior: "smooth",
-                })
-            }
-          >
-            Consultas
-          </button>
-
-
-          <button
-            onClick={() => navigate("/estados")}
-          >
-            Estados
-          </button>
-
-
-          <button
-            onClick={() =>
-              document
-                .getElementById("sobre")
-                ?.scrollIntoView({
-                  behavior: "smooth",
-                })
-            }
-          >
-            Sobre
-          </button>
-
-        </nav>
-
-      </header>
+     <Header />
 
 
       {/* =====================================================
@@ -115,8 +63,8 @@ const localizacao =
             </div>
 
 
-            <h1>
-              Informação brasileira
+            <h1 className="hero-title">
+              Informações brasileiras
               <span>
                 em um só lugar.
               </span>

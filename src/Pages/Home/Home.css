@@ -23,7 +23,7 @@
     ),
     #f8fafc;
 
-  color: #0f172a;
+  color:#123047
 }
 
 
@@ -82,7 +82,7 @@
   bottom: 40px;
   left: 45%;
 
-  background: rgba(255, 60, 172, 0.10);
+  background: #123047;
 
   animation-delay: -6s;
 }
@@ -101,8 +101,17 @@
       translate3d(0, -25px, 0)
       scale(1.08);
   }
-}
 
+}
+.hero-title  {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 100;
+  color: #123047;
+  letter-spacing: -1.5px;
+  line-height: 1.15;
+  font-size: 600px;
+
+}  
 
 /* =========================================================
    HEADER
